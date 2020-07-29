@@ -1,0 +1,58 @@
+#+TITLE:     Writing Beamer presentations in org-mode
+#+AUTHOR:    Guofeng Cao
+#+EMAIL:     Guofeng.cao@colorado.edu
+#+DATE:      2020-07-29 Tue
+#+OPTIONS: H:2 toc:nil num:t
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [presentation]
+#+BEAMER_FRAME_LEVEL: 2
+#+COLUMNS: %45ITEM %10BEAMER_ENV(Env) %10BEAMER_ACT(Act) %4BEAMER_COL(Col)
+#+BEAMER_THEME: default
+#+latex_header: \setbeamertemplate{footline}[frame number]{}
+#+latex_header: \setbeamertemplate{navigation symbols}{}
+
+# #+latex_header: \AtBeginSection[]{\begin{frame}<beamer>\frametitle{Topic}\tableofcontents[currentsection]\end{frame}}
+
+#+PROPERTY: header-args:R  :session *Beamer* :exports both
+
+** Example of Org-mode Beamer presentation
+
+*** Frame 1
+**** Thanks to Eric Fraga                                        :B_block:
+    :PROPERTIES:
+    :BEAMER_COL: 0.48
+    :BEAMER_ENV: block
+    :END:
+    for the first viable Beamer setup in Org
+**** Thanks to everyone else                                     :B_block:
+    :PROPERTIES:
+    :BEAMER_COL: 0.48
+    :BEAMER_ACT: <2->
+    :BEAMER_ENV: block
+    :END:
+    for contributing to the discussion
+***** This will be formatted as a beamer note                    :B_note:
+     :PROPERTIES:
+     :BEAMER_env: note
+     :END:
+     test note
+*** Frame 2 (where we will not use columns)
+**** Request
+    Please test this stuff!
+*** Babel
+   :PROPERTIES:
+   :BEAMER_envargs: [t]
+   :END:
+
+**** R code                                                :BMCOL:B_block:
+    :PROPERTIES:
+    :BEAMER_col: 0.45
+    :BEAMER_env: block
+    :END:
+    #+name: Rexample
+#+begin_src R :exports both :results file graphics :file test2.png :dir ./images
+    test=rnorm(100)
+    plot(test)
+#+end_src
