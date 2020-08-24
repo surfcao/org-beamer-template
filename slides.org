@@ -52,7 +52,7 @@
     :BEAMER_env: block
     :END:
     #+name: Rexample
-#+begin_src R :exports both :results file graphics :file test2.png :dir ./images
+#+begin_src R :exports both :results graphics file :file test2.png :dir ./images
     test=rnorm(100)
     plot(test)
 #+end_src
